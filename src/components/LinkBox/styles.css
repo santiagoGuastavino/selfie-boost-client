@@ -1,0 +1,33 @@
+.link-box {
+  width: 100vw;
+  height: 3vh;
+  margin: 0 auto;
+  background-color: var(--black5);
+}
+
+.link-box-ul {
+  width: 60vw;
+  height: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.link-box-ul li {
+  list-style-type: none;
+  margin: 0 var(--side-spacing-x2);
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.link-box-ul li .active {
+  color: var(--primary-light);
+  text-decoration: underline;
+}
+
+.link-box-ul li a:hover {
+  transition: var(--transition);
+  color: var(--secondary);
+}
