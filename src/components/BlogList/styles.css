@@ -1,0 +1,47 @@
+.blogs-list {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 5vh;
+}
+
+.blogs-list h1 {
+  width: 100%;
+  font-size: 32px;
+  margin-bottom: var(--side-spacing-x2);
+  text-align: center;
+  background-color: var(--black3);
+  box-shadow: var(--box-shadow);
+  border: var(--border);
+}
+
+.add-one-link {
+  letter-spacing: 0.5px;
+  font-weight: 800;
+  text-decoration: underline;
+  color: var(--primary-light);
+  transition: var(--transition);
+}
+
+.add-one-link:hover {
+  color: var(--secondary);
+}
+
+@media (min-width: 576px) {
+  .blogs-list h1 {
+    font-size: 36px;
+  }
+}
+
+@media (min-width: 768px) {
+
+}
+
+@media (min-width: 992px) {
+
+}
+
+@media (min-width: 1200px) {
+
+}

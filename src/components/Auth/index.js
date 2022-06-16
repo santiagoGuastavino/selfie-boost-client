@@ -1,6 +1,9 @@
 import './styles.css'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { postRequest } from '../../helper/apiCall'
+import { useDispatch } from 'react-redux'
+import { authActions } from '../../store'
+import { useNavigate } from 'react-router-dom'
 
 const INITIAL_STATE = {
   name: '',
@@ -11,6 +14,15 @@ const INITIAL_STATE = {
 export default function Auth () {
   const [isSignup, setIsSignup] = useState(false)
   const [formData, setFormData] = useState(INITIAL_STATE)
+
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    const user = localStorage.getItem('userId')
+    user && dispatch(authActions.login())
+    user && navigate('/blogs')
+  }, [])
 
   const handleClick = (e) => {
     e.preventDefault()
@@ -30,11 +42,16 @@ export default function Auth () {
     }
     !isSignup && delete postData.name
 
-    postRequest(`${process.env.REACT_APP_BASE_URL}/user${requestType}`, postData)
-      .then(response => console.log(response))
+    postRequest(`/user${requestType}`, postData)
+      .then((response) => {
+        if (response.ok) {
+          localStorage.setItem('userId', response.user._id)
+          setFormData(INITIAL_STATE)
+          dispatch(authActions.login())
+          navigate('/blogs')
+        }
+      })
       .catch(err => console.log(err))
-
-    setFormData(INITIAL_STATE)
   }
 
   const handleChange = (e) => {
@@ -46,7 +63,7 @@ export default function Auth () {
   }
 
   return (
-    <form onSubmit={handleSubmit} className='form'>
+    <form onSubmit={handleSubmit} className='auth-form'>
       <h2>
         {isSignup ? 'Sign Up' : 'Login'}
       </h2>

@@ -1,7 +1,7 @@
-.auth-form {
+.blog-form {
   margin: 0 auto;
   width: 100%;
-  max-width: 380px;
+  max-width: 600px;
   display: flex;
   flex-flow: column wrap;
   justify-content: center;
@@ -12,30 +12,55 @@
   border: var(--border);
 }
 
-.auth-form * {
-  margin: var(--side-spacing) 0;
+.blog-form * {
   font-size: 12px;
 }
 
-.auth-form h2 {
+.blog-form h2 {
   font-size: 24px;
 }
 
-.auth-form input, .auth-form button {
+.blog-form div {
+  margin: var(--side-spacing-x2) 0;
+  width: 80%;
+  display: flex;
+  flex-flow: column wrap;
+  box-shadow: var(--box-shadow);
   padding: var(--padding-inner);
-  width: 60%;
-  font-family: var(--base-font);
+  border: var(--border);
 }
 
-.auth-form input:focus, .auth-form button:focus {
+.blog-form div * {
+  margin: var(--side-spacing) 0;
+  font-family: var(--base-font);
+  width: 100%;
+}
+
+.blog-form label {
+  text-align: left;
+}
+
+.blog-form div input, .blog-form div textarea {
+  padding: var(--padding-inner);
+}
+
+.blog-form div textarea {
+  resize: none;
+  height: 200px;
+}
+
+.blog-form div input:focus,
+.blog-form div button:focus,
+.blog-form div textarea:focus {
   outline: var(--secondary-dark) 2px solid;
 }
 
-.auth-form input {
+.blog-form div input, .blog-form div textarea {
   border: none;
 }
 
-.auth-form button {
+.blog-form button {
+  width: 80%;
   background-color: var(--primary);
   color: var(--black);
   font-weight: 600;
@@ -44,28 +69,26 @@
   cursor: pointer;
   border: var(--primary) 1px solid;
   outline: none;
+  margin: var(--side-spacing-x2) 0 var(--side-spacing) 0;
+  font-family: var(--base-font);
 }
 
-.auth-form button:hover {
+.blog-form button:hover {
   background-color: var(--secondary);
   border: var(--secondary) 1px solid;
   color: var(--white);
 }
 
-.auth-form .submit-button {
-  margin-top: var(--side-spacing-x2);
-}
-
 @media (min-width: 576px) {
-  .auth-form {
-    width: 50%;
+  .blog-form {
+    width: 80%;
   }
 
-  .auth-form * {
+  .blog-form * {
     font-size: 16px;
   }
 
-  .auth-form h2 {
+  .blog-form h2 {
     font-size: 32px;
   }
 }

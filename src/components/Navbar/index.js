@@ -4,10 +4,17 @@ import logo from '../../images/logo.png'
 import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars } from '@fortawesome/free-solid-svg-icons'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
+import { authActions } from '../../store'
 
 export default function Navbar () {
   const isLoggedIn = useSelector(state => state.isLoggedIn)
+  const dispatch = useDispatch()
+
+  const handleClick = () => {
+    localStorage.clear()
+    dispatch(authActions.logout())
+  }
 
   return (
     <div className='nav-wrapper'>
@@ -21,18 +28,18 @@ export default function Navbar () {
         </ul>
         <ul className='nav-ul'>
         { !isLoggedIn &&
-          <>
-            <li>
-              <Link to='/auth'>Login</Link>
-            </li>
-            <li>
-              <Link to='/auth'>Sign Up</Link>
-            </li>
-          </>
+          <li>
+            <Link to='/'>Login</Link>
+          </li>
         }
           { isLoggedIn &&
             <li>
-              <Link to='/auth'>Log Out</Link>
+              <Link
+                onClick={handleClick}
+                to='/'
+              >
+                Log Out
+              </Link>
             </li>
           }
         </ul>

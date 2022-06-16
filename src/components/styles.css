@@ -18,7 +18,8 @@ html,
 body {
   color: var(--white);
   background-color: var(--black1);
-  font-family: 'Montserrat', sans-serif;
+  font-family: var(--base-font);
+  overflow-x: hidden;
 }
 
 :root {
@@ -29,9 +30,14 @@ body {
   --secondary: #0277bd;
   --secondary-dark: #004c8c;
   --padding-inner: 8px;
+  --padding-inner-x2: 16px;
   --side-spacing: 5px;
   --side-spacing-x2: 10px;
+  --side-spacing-large: 30px;
+  --box-shadow: 3px 3px 3px #000;
+  --border: solid 1px #373737; 
   --transition: all 0.1s cubic-bezier(0.25, 0.25, 0.25, 0.25);
+  --base-font: 'Montserrat', sans-serif;
   --black1: #121212;
   --black2: #1d1d1d;
   --black3: #222222;
