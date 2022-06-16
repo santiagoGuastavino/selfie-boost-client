@@ -1,39 +1,27 @@
-<!-- [app_name](deploy.com)
+[Blogs](https://blogs-mern-client.herokuapp.com/)
 ---
 
-_**tuiter** is a "Twitter Mockup" with a twist._ // what is?
-_Developed for educational purposes and for fun's sake._  // more info?
-_This website was built with [Next.js Framework](https://nextjs.org/)._  // focus
-_This project is in a WIP state._  // is WIP?
+_Developed for educational purposes and for fun's sake._  
+_This UI was built with [React.js](https://reactjs.org/)._  
+_The [REST Server](https://github.com/santiagoGuastavino/blogs-mern-server) was built with [Express.js](https://expressjs.com/) and [MongoDB](https://www.mongodb.com/)_  
+
+---
 
 #### For this project I used:
 
 - [Node.js](https://nodejs.org)
-- [Next.js](https://nextjs.org/)
+- [React.js](https://reactjs.org/)
+  - [react-router-dom](https://www.npmjs.com/package/react-router-dom)
   - [Font Awesome React Component](https://fontawesome.com/v5/docs/web/use-with/react)
-- [Firebase](https://firebase.google.com/)
-  - [Firebase.js](https://www.npmjs.com/package/firebase)
-  - [Firebase Authentication](https://firebase.google.com/docs/auth)
-    - [Authenticate Using GitHub](https://firebase.google.com/docs/auth/web/github-auth)
+- [Redux](https://react-redux.js.org/)
+  - [Redux Toolkit](https://redux-toolkit.js.org/)
 - [ESLint](https://www.npmjs.com/package/eslint)
 
 ---
 
-[some other link or noteworthy thing?](https://other-relevant-link-or-noteworthy-thing/)  
+Check out the technologies and libraries I used to build the [REST Server](https://github.com/santiagoGuastavino/blogs-mern-server).
 
 ---
 
-This web app is yet to be deployed.  
-
-This Next.js Web App has been deployed to [Vercel](https://vercel.com/).  
-
-This web app was developed following steps provided by the [Coding Academy](https://www.digitalhouse.com/) I was tutored by, and deployed to [Heroku](https://devcenter.heroku.com/start).  
-
-This web app was developed following steps provided by the [Coding Academy](https://www.digitalhouse.com/) I was tutored by, and deployed to [Heroku](https://devcenter.heroku.com/start). It has a [ClearDB addon](https://elements.heroku.com/addons/cleardb) instance that hosts a remote MySQL Database.  
-
-This web app has been deployed to [Heroku](https://devcenter.heroku.com/start). It has a [ClearDB addon](https://elements.heroku.com/addons/cleardb) instance that hosts a remote MySQL Database.  
-
 This React.js web app has been deployed to [Heroku](https://devcenter.heroku.com/start). It was deployed with a builpack that automates deployment with the built-in bundler and serves it up via Nginx.  
 **Read more: [Heroku Buildpack for create-react-app](https://github.com/mars/create-react-app-buildpack)**.  
-
-This REST API interface has been deployed to [Heroku](https://devcenter.heroku.com/start). It has a [ClearDB addon](https://elements.heroku.com/addons/cleardb) instance that hosts a remote MySQL Database.  -->
