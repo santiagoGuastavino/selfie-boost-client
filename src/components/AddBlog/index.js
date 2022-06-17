@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { postRequest } from '../../helper/apiCall'
 import { useNavigate } from 'react-router-dom'
 import BlogForm from '../BlogForm'
+import { useAuth } from '../../hooks/useAuth'
 
 const INITIAL_STATE = {
   title: '',
@@ -10,6 +11,8 @@ const INITIAL_STATE = {
 }
 
 export default function AddBlog () {
+  useAuth()
+
   const [formData, setFormData] = useState(INITIAL_STATE)
 
   const navigate = useNavigate()

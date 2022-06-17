@@ -9,18 +9,19 @@ import UserBlogs from './UserBlogs'
 import BlogEdit from './BlogEdit'
 import AddBlog from './AddBlog'
 import BlogDelete from './BlogDelete'
-import { useSelector, useDispatch } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { authActions } from '../store'
+import { useAuth } from '../hooks/useAuth'
 
 function App () {
-  const isLoggedIn = useSelector(state => state.isLoggedIn)
-
   const dispatch = useDispatch()
 
   useEffect(() => {
     const user = localStorage.getItem('userId')
     user && dispatch(authActions.login())
   }, [])
+
+  const isLoggedIn = useAuth()
 
   return (
     <>

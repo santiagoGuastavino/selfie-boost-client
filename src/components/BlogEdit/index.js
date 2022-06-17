@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import { getRequest, putRequest } from '../../helper/apiCall'
+import { useAuth } from '../../hooks/useAuth'
 import BlogForm from '../BlogForm'
 
 export default function BlogEdit () {
+  useAuth()
+
   const [formData, setFormData] = useState(null)
 
   const id = useParams().id
