@@ -9,13 +9,12 @@ import UserBlogs from './UserBlogs'
 import BlogEdit from './BlogEdit'
 import AddBlog from './AddBlog'
 import BlogDelete from './BlogDelete'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { authActions } from '../store'
-import { useAuth } from '../hooks/useAuth'
-
-const baseUser = process.env.REACT_APP_BASE_USER
 
 function App () {
+  const isLoggedIn = useSelector((state) => state.isLoggedIn)
+
   const dispatch = useDispatch()
 
   useEffect(() => {
@@ -23,12 +22,10 @@ function App () {
     if (user) {
       dispatch(authActions.login())
     } else {
-      localStorage.setItem('userId', baseUser)
+      localStorage.setItem('userId', process.env.REACT_APP_BASE_USER)
       dispatch(authActions.login())
     }
   }, [])
-
-  const isLoggedIn = useAuth()
 
   return (
     <>
