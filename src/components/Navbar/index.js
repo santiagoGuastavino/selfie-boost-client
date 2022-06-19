@@ -27,21 +27,16 @@ export default function Navbar () {
           <FontAwesomeIcon icon={faBars} />
         </ul>
         <ul className='nav-ul'>
-        { !isLoggedIn &&
+        { isLoggedIn &&
           <li>
-            <Link to='/'>Login</Link>
+            <Link
+              onClick={handleClick}
+              to='/'
+            >
+              Log Out
+            </Link>
           </li>
         }
-          { isLoggedIn &&
-            <li>
-              <Link
-                onClick={handleClick}
-                to='/'
-              >
-                Log Out
-              </Link>
-            </li>
-          }
         </ul>
       </nav>
     </div>

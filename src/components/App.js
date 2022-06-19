@@ -13,12 +13,19 @@ import { useDispatch } from 'react-redux'
 import { authActions } from '../store'
 import { useAuth } from '../hooks/useAuth'
 
+const baseUser = process.env.REACT_APP_BASE_USER
+
 function App () {
   const dispatch = useDispatch()
 
   useEffect(() => {
     const user = localStorage.getItem('userId')
-    user && dispatch(authActions.login())
+    if (user) {
+      dispatch(authActions.login())
+    } else {
+      localStorage.setItem('userId', baseUser)
+      dispatch(authActions.login())
+    }
   }, [])
 
   const isLoggedIn = useAuth()
