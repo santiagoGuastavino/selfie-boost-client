@@ -12,7 +12,7 @@ import BlogDelete from './BlogDelete'
 import { useDispatch, useSelector } from 'react-redux'
 import { authActions } from '../store'
 
-function App () {
+export default function App () {
   const isLoggedIn = useSelector((state) => state.isLoggedIn)
 
   const dispatch = useDispatch()
@@ -46,5 +46,3 @@ function App () {
     </>
   )
 }
-
-export default App
