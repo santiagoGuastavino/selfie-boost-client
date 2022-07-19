@@ -6,7 +6,6 @@
   box-shadow: var(--box-shadow);
   border: var(--border);
   position: relative;
-  max-height: 459px;
 }
 
 .blog-article * {
