@@ -1,0 +1,102 @@
+@import '_constants.scss';
+
+.navWrapper {
+  width: 100vw;
+  height: 7vh;
+  background-color: $c-black3;
+}
+
+.nav {
+  width: 85vw;
+  height: 7vh;
+  margin: 0 auto;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navImgBox {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  align-items: center;
+
+  img {
+    width: 50px;
+  }
+
+  p {
+    display: inline-block;
+  }
+}
+
+.navUlMobile {
+  margin-left: auto;
+
+  svg {
+    padding: $padding-inner;
+    background-color: $c-primary;
+    color: $c-black;
+    font-size: 20px;
+  }
+}
+
+.navUl {
+  display: none;
+  flex-flow: row wrap;
+
+  li {
+    list-style: none;
+    margin: 0 $side-spacing;
+
+    a {
+      background-color: $c-primary;
+      color: $c-black;
+      font-weight: 600;
+      padding: $padding-inner;
+      transition: $transition;
+      outline: none;
+
+      &:hover {
+        background-color: $c-secondary;
+        color: $c-white;
+      }
+
+      &:focus {
+        outline: $c-secondary-dark 2px solid;
+      }
+    }
+  }
+}
+
+@media (min-width: 576px) {
+  .nav {
+    h3 {
+      font-size: 24px;
+    }
+  }
+
+  .navUlMobile {
+    display: none;
+  }
+
+  .navUl {
+    display: flex;
+  }
+}
+
+@media (min-width: 768px) {
+
+}
+
+@media (min-width: 992px) {
+
+}
+
+@media (min-width: 1200px) {
+  .nav {
+    max-width: 1200px;
+  }
+}
+

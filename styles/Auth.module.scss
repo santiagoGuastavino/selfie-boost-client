@@ -1,0 +1,120 @@
+@import '_constants.scss';
+
+.authForm {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 380px;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: $c-black3;
+  padding: $padding-inner;
+  box-shadow: $box-shadow;
+  border-top: $border;
+  border-bottom: $border;
+  min-height: 228px;
+}
+
+.authForm * {
+  margin: $side-spacing 0;
+  font-size: 12px;
+}
+
+.authForm h2 {
+  font-size: 24px;
+}
+
+.authForm input, .authForm button {
+  padding: $padding-inner;
+  width: 60%;
+  font-family: $base-font;
+}
+
+.authForm input:focus, .authForm button:focus {
+  outline: $c-secondary-dark 2px solid;
+}
+
+.authForm input {
+  border: none;
+}
+
+.authForm button {
+  background-color: $c-primary;
+  color: $c-black;
+  font-weight: 600;
+  padding: $padding-inner;
+  transition: $transition;
+  cursor: pointer;
+  border: $c-primary 1px solid;
+  outline: none;
+  margin-top: auto;
+}
+
+.authForm button:hover {
+  background-color: $c-secondary;
+  border: $c-secondary 1px solid;
+  color: $c-white;
+}
+
+.authToggle {
+  width: 100%;
+
+  button {
+    border: none;
+    display: block;
+    background-color: inherit;
+    color: $c-white;
+    margin: 0 auto;
+    margin-top: $side-spacing-large;
+    font-size: 12px;
+    cursor: pointer;
+    transition: $transition;
+
+    &:hover {
+      text-decoration: underline;
+      color: $c-primary-light;
+      border: none !important;
+    }
+
+    &:focus {
+      outline: none;
+      border-bottom: dotted 1px #ccc;
+    }
+  }
+}
+
+@media (min-width: 380px) {
+  .authForm {
+    border-radius: $border-r;
+    border: $border;
+  }
+}
+
+@media (min-width: 576px) {
+  .authForm {
+    width: 50%;
+    min-height: 254px;
+  }
+
+  .authForm *,
+  .authToggle button {
+    font-size: 16px;
+  }
+
+  .authForm h2 {
+    font-size: 32px;
+  }
+}
+
+@media (min-width: 768px) {
+
+}
+
+@media (min-width: 992px) {
+
+}
+
+@media (min-width: 1200px) {
+
+}

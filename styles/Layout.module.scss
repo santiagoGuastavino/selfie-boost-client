@@ -1,0 +1,29 @@
+@import '_constants.scss';
+
+.layout {
+  width: 100vw;
+  margin-top: 5vh;
+  min-height: 88vh;
+}
+
+@media (min-width: 576px) {
+  .layout {
+    width: 90vw;
+    margin: 0 auto;
+    margin-top: 5vh;
+  }
+}
+
+@media (min-width: 768px) {
+
+}
+
+@media (min-width: 992px) {
+
+}
+
+@media (min-width: 1200px) {
+  .layout {
+    max-width: 1400px;
+  }
+}
