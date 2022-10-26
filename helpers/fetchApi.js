@@ -1,13 +1,13 @@
 const defaultUrl = 'http://localhost:3001'
 
 export async function getRequest (endpoint, callback) {
-  fetch(defaultUrl + endpoint)
+  await fetch(defaultUrl + endpoint)
     .then(response => response.json())
-    .then(data => callback(data.payload))
-    .catch(err => console.log(err))
+    .then(data => callback(data))
+    .catch(error => console.log(error))
 }
 
-export async function postRequest (endpoint, data) {
+export async function postRequest (endpoint, data, callback) {
   const postSettings = {
     method: 'POST',
     mode: 'cors',
@@ -21,6 +21,16 @@ export async function postRequest (endpoint, data) {
     body: JSON.stringify(data)
   }
 
-  const response = await fetch(defaultUrl + endpoint, postSettings)
-  return response.json()
+  await fetch(defaultUrl + endpoint, postSettings)
+    .then(response => response.json())
+    .then(data => {
+      if (Object.hasOwn(data, 'access_token')) {
+        callback(data.access_token)
+      } else {
+        console.log({
+          whatDo: data
+        })
+      }
+    })
+    .catch(error => console.log(error))
 }

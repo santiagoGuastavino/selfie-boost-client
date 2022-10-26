@@ -2,9 +2,9 @@ import styles from '../styles/Auth.module.scss'
 import Head from 'next/head'
 import { useContext, useEffect, useState } from 'react'
 import { AuthTypes } from '../common/auth-types.enum'
-import { UserContext } from '../context/UserContext'
+import { AuthContext } from '../context/AuthContext'
 import { postRequest } from '../helpers/fetchApi'
-import Error from '../components/Error'
+import { useRouter } from 'next/router'
 
 const FORM_INITIAL_STATE = {
   name: '',
@@ -15,29 +15,19 @@ const FORM_INITIAL_STATE = {
 export default function Auth () {
   const [authType, setAuthType] = useState(AuthTypes.LOGIN)
   const [formData, setFormData] = useState(FORM_INITIAL_STATE)
-  const [errorMessages, setErrorMessages] = useState('')
 
-  // const { user, setUser } = useContext(UserContext)
+  const { setToken, isAuth } = useContext(AuthContext)
 
-  // useEffect(() => {
-  //   console.log(user)
-  // }, [user])
+  const router = useRouter()
 
-  // useEffect(() => {
-  //   console.log(errorMessage)
-  // }, [errorMessage])
+  useEffect(() => {
+    isAuth && router.replace('/')
+  }, [isAuth])
 
   const handleSubmit = (e) => {
-    console.log(formData)
     e.preventDefault()
     authType === AuthTypes.LOGIN && delete formData.name
-    postRequest('/auth/login', formData)
-      .then(res => {
-        if (res.statusCode === 400) {
-          setErrorMessages(res.message)
-        }
-      })
-      // .catch(err => setErrorMessage(err.message))
+    postRequest('/auth/login', formData, setToken)
   }
 
   const handleChange = (e) => {
@@ -106,12 +96,6 @@ export default function Auth () {
           }
         </button>
       </div>
-
-      {errorMessages &&
-        <Error
-          errorMessage={errorMessages}
-        />
-      }
     </>
   )
 }

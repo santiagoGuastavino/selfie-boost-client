@@ -11,8 +11,8 @@
   background-color: $c-black3;
   padding: $padding-inner;
   box-shadow: $box-shadow;
-  border-top: $border;
-  border-bottom: $border;
+  border-top: $border $c-black10;
+  border-bottom: $border $c-black10;
   min-height: 228px;
 }
 
@@ -79,7 +79,6 @@
 
     &:focus {
       outline: none;
-      border-bottom: dotted 1px #ccc;
     }
   }
 }
@@ -87,7 +86,7 @@
 @media (min-width: 380px) {
   .authForm {
     border-radius: $border-r;
-    border: $border;
+    border: $border $c-black10;
   }
 }
 

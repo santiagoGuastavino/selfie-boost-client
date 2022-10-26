@@ -21,6 +21,8 @@
   flex-flow: row wrap;
   justify-content: flex-start;
   align-items: center;
+  border-radius: $border-r;
+  border: $border transparent;
 
   img {
     width: 50px;
@@ -50,13 +52,17 @@
     list-style: none;
     margin: 0 $side-spacing;
 
-    a {
-      background-color: $c-primary;
-      color: $c-black;
-      font-weight: 600;
-      padding: $padding-inner;
+    a {    
       transition: $transition;
       outline: none;
+      cursor: pointer;
+    }
+
+    a.logInLink {
+      background-color: $c-primary;
+      color: $c-black;
+      padding: $padding-inner;
+      font-weight: 600;
 
       &:hover {
         background-color: $c-secondary;
@@ -65,6 +71,13 @@
 
       &:focus {
         outline: $c-secondary-dark 2px solid;
+      }
+    }
+
+    a.logOutLink {
+      
+      &:hover {
+        text-decoration: underline;
       }
     }
   }
@@ -96,7 +109,6 @@
 
 @media (min-width: 1200px) {
   .nav {
-    max-width: 1200px;
+    max-width: 1300px;
   }
 }
-

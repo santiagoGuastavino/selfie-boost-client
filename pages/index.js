@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import { useEffect, useState } from 'react'
-import { getRequest } from '../helpers/apiCalls'
+import { getRequest } from '../helpers/fetchApi'
 import Blogs from '../components/Blogs'
 
 export default function Home () {

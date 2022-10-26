@@ -1,4 +1,4 @@
 export const BlogListTypes = {
-  ALL_BLOGS: 0,
-  USER_BLOGS: 1
+  ALL_BLOGS: 'all_blogs',
+  USER_BLOGS: 'user_blogs'
 }
