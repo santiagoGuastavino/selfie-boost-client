@@ -7,13 +7,14 @@
 }
 
 .nav {
-  width: 85vw;
+  width: 95vw;
   height: 7vh;
   margin: 0 auto;
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
   align-items: center;
+  position: relative;
 }
 
 .navImgBox {
@@ -21,8 +22,6 @@
   flex-flow: row wrap;
   justify-content: flex-start;
   align-items: center;
-  border-radius: $border-r;
-  border: $border transparent;
 
   img {
     width: 50px;
@@ -33,32 +32,64 @@
   }
 }
 
-.navUlMobile {
-  margin-left: auto;
+// .linksAuthBox {
+//   display: flex;
+//   position: absolute;
+//   top: 0;
+//   left: -500px;
+//   width: 100vw;
+//   height: 7vh;
 
-  svg {
-    padding: $padding-inner;
-    background-color: $c-primary;
-    color: $c-black;
-    font-size: 20px;
-  }
+//   .display {
+//     left: 0;
+//   }
+// }
+
+.navLinks.show {
+  // display: flex;
+  left: 0;
 }
 
-.navUl {
-  display: none;
+.navLinks {
+  position: absolute;
+  top: 0;
+  left: -100vw;
+  width: 100vw;
+  height: 7vh;
+  display: flex;
   flex-flow: row wrap;
+  justify-content: space-around;
+  align-items: center;
+  transition: $transition;
+  background-color: $c-black3;
 
-  li {
-    list-style: none;
-    margin: 0 $side-spacing;
+  // flex-flow: row wrap;
+  // flex-grow: 3;
+
+  .navigationLinks {
+    display: flex;
+    flex-flow: column wrap;
+    // justify-content: space-between;
+    // align-items: center;
+
+    li, a {
+      list-style: none;
+      margin-left: $side-spacing;
+      cursor: pointer;
+      transition: $transition;
+      text-decoration: underline;
+    }
+  }
+
+  .authLinks {
+    display: flex;
+    flex-flow: row wrap;
 
     a {    
+      margin-left: $side-spacing;
       transition: $transition;
       outline: none;
       cursor: pointer;
-    }
-
-    a.logInLink {
       background-color: $c-primary;
       color: $c-black;
       padding: $padding-inner;
@@ -73,29 +104,47 @@
         outline: $c-secondary-dark 2px solid;
       }
     }
+  }
+}
 
-    a.logOutLink {
-      
-      &:hover {
-        text-decoration: underline;
-      }
+.navHamburger {
+  svg {
+    padding: $padding-inner;
+    color: $c-white;
+    font-size: 32px;
+  }
+}
+
+.homeLink {
+  text-decoration: underline;
+}
+
+@media(min-width: 350px) {
+  .navLinks {
+
+    .navigationLinks {
+      flex-flow: row wrap;
     }
   }
 }
 
 @media (min-width: 576px) {
   .nav {
+    width: 90vw;
+
     h3 {
       font-size: 24px;
     }
   }
 
-  .navUlMobile {
-    display: none;
+  .navLinks {
+    display: flex;
+    position: unset;
+    background-color: transparent;
   }
 
-  .navUl {
-    display: flex;
+  .navHamburger {
+    display: none;
   }
 }
 

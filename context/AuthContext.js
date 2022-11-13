@@ -15,15 +15,16 @@ export const AuthContextProvider = ({ children }) => {
     // check local storage as object
     const localStorageToken = localStorage.getItem('token')
     if (localStorageToken) {
-      const issued = localStorage.getItem('issued')
+      const localStorageIssued = localStorage.getItem('issued')
+      const issued = JSON.parse(localStorageIssued)
       const elapsed = getDateDiff(issued)
-      console.log(elapsed)
       if (elapsed.unit === 'day' && elapsed.value > 29) {
         localStorage.clear()
         setToken('')
         setAuth(AuthStates.EXPIRED)
       } else {
-        setToken(localStorageToken)
+        const token = JSON.parse(localStorageToken)
+        setToken(token)
         setAuth(AuthStates.FULFILLED)
       }
     } else {
@@ -33,14 +34,13 @@ export const AuthContextProvider = ({ children }) => {
 
   useEffect(() => {
     // listen to app level token changes
-    if (token === '') {
+    if (token === '') { // this is the action of logging out
       localStorage.clear()
       setAuth(AuthStates.EMPTY)
     } else {
-      // set token as object
-      // localStorage.setItem('token', token)
-      // const now = Date.now()
-      // localStorage.setItem('issued', now)
+      localStorage.setItem('token', JSON.stringify(token))
+      const now = Date.now()
+      localStorage.setItem('issued', JSON.stringify(now))
       setAuth(AuthStates.FULFILLED)
     }
   }, [token])
@@ -65,15 +65,6 @@ export const AuthContextProvider = ({ children }) => {
         break
     }
   }, [auth])
-
-  useEffect(() => {
-    const localStorageToken = localStorage.getItem('token')
-    if (localStorageToken) {
-      const issued = localStorage.getItem('issued')
-      const elapsed = getDateDiff(issued)
-      console.log(elapsed)
-    }
-  }, [])
 
   return (
     <AuthContext.Provider value={{ isAuth, setToken }}>

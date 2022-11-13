@@ -3,7 +3,15 @@ const defaultUrl = 'http://localhost:3001'
 export async function getRequest (endpoint, callback) {
   await fetch(defaultUrl + endpoint)
     .then(response => response.json())
-    .then(data => callback(data))
+    .then(data => {
+      if (Object.hasOwn(data, 'payload')) {
+        callback(data.payload)
+      } else {
+        console.log({
+          whatDo: data
+        })
+      }
+    })
     .catch(error => console.log(error))
 }
 
